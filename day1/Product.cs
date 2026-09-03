@@ -16,4 +16,5 @@ namespace day1
         public int stock {  get; set; }
 
     }
+
 }
