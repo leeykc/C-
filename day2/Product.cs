@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day1
+namespace day2
 {
     public class Product
     {
@@ -16,4 +16,5 @@ namespace day1
         public int stock {  get; set; }
 
     }
+
 }
