@@ -1,4 +1,4 @@
-# C- 学习仓库（库存管理程序的后台逻辑练习）
+# C- 学习仓库（day5+day6）
 
 用代码记录 C# 与 Java 的学习过程。
 
@@ -60,6 +60,21 @@
 True
 ```
 
+## day5+day6：ProductService 与前台调用
+
+- 把商品查找和库存扣减的业务规则移动到独立的 `ProductService` 类中。
+- `ProductService.FindProduct` 负责按编号查找商品。
+- `ProductService.ReduceStock` 返回状态字符串，区分“数量不合法”“库存不足”和“扣减成功”。
+- `Program` 作为前台入口接收输入，并根据返回状态输出对应结果。
+- 运行方式：使用 Visual Studio 打开 `day5+day6.sln`，按 F5 运行。
+
+```text
+请输入商品编号: 1002
+请输入购买数量: 1000
+该商品库存不足
+库存量: 100
+```
+
 ## 第二天与第一天的主要差异
 
 - 第一天直接遍历 `List<Product>` 并打印所有商品名称。
@@ -77,3 +92,9 @@ True
 - 第三天的 `ReduceStock` 没有返回值，库存不足时直接输出“库存不足”。
 - 第四天把 `ReduceStock` 改为返回 `bool`：扣减成功返回 `true`，库存不足返回 `false`。
 - 第四天由主程序接收返回值，并输出扣减后的剩余库存和成功结果。
+
+## day5+day6 与 day4 的主要差异
+
+- day4 的查找和库存扣减逻辑都写在 `Program` 中。
+- day5+day6 将业务规则封装到 `ProductService` 类中，让 `Program` 只负责前台输入和输出。
+- `ReduceStock` 由返回 `bool` 改为返回状态字符串，并额外检查购买数量是否为不合法数值。
