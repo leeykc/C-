@@ -75,6 +75,21 @@ True
 库存量: 100
 ```
 
+## day7：商品添加业务
+
+- 在 `day5+day6` 的 `ProductService` 基础上新增 `AddProduct` 商品添加方法。
+- 通过控制台输入商品编号、名称、价格和库存，创建新的 `Product` 对象。
+- `AddProduct` 会先检查商品编号是否已存在，编号重复时返回 `DUPLICATE`，否则添加成功并返回 `SUCCESS`。
+- 运行方式：使用 Visual Studio 打开 `day7.sln`，按 F5 运行。
+
+```text
+请输入商品编号: 1004
+请输入商品名称: 耳机
+请输入商品价格: 199
+请输入商品库存: 80
+商品添加成功
+```
+
 ## 第二天与第一天的主要差异
 
 - 第一天直接遍历 `List<Product>` 并打印所有商品名称。
@@ -98,3 +113,9 @@ True
 - day4 的查找和库存扣减逻辑都写在 `Program` 中。
 - day5+day6 将业务规则封装到 `ProductService` 类中，让 `Program` 只负责前台输入和输出。
 - `ReduceStock` 由返回 `bool` 改为返回状态字符串，并额外检查购买数量是否为不合法数值。
+
+## day7 与 day5+day6 的主要差异
+
+- day5+day6 只在前台查找商品并执行库存扣减，不向列表中添加新商品。
+- day7 新增 `AddProduct(List<Product>, Product)`，先通过 `FindProduct` 检查编号重复，再决定是否把商品加入列表。
+- day7 由 `Program` 输入完整商品信息并调用 `AddProduct`，分别处理 `SUCCESS` 和 `DUPLICATE` 两种结果。
