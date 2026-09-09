@@ -1,4 +1,4 @@
-# C- 学习仓库（库存管理系统练习）
+# C- 学习仓库（day5+day6）
 
 用代码记录 C# 与 Java 的学习过程。
 
@@ -90,6 +90,18 @@ True
 商品添加成功
 ```
 
+## day8：商品删除业务
+
+- 在 `day7` 的 `ProductService` 基础上新增 `DeleteProduct` 商品删除方法。
+- 程序先向临时商品列表中加入两条示例商品，再根据输入的商品编号执行删除。
+- `DeleteProduct` 先通过 `FindProduct` 查找商品，找到后删除并返回 `SUCCESS`，找不到返回 `NOT_FOUND`。
+- 运行方式：使用 Visual Studio 打开 `day8.sln`，按 F5 运行。
+
+```text
+请输入商品编号: 1001
+商品删除成功
+```
+
 ## 第二天与第一天的主要差异
 
 - 第一天直接遍历 `List<Product>` 并打印所有商品名称。
@@ -119,3 +131,9 @@ True
 - day5+day6 只在前台查找商品并执行库存扣减，不向列表中添加新商品。
 - day7 新增 `AddProduct(List<Product>, Product)`，先通过 `FindProduct` 检查编号重复，再决定是否把商品加入列表。
 - day7 由 `Program` 输入完整商品信息并调用 `AddProduct`，分别处理 `SUCCESS` 和 `DUPLICATE` 两种结果。
+
+## day8 与 day7 的主要差异
+
+- day7 使用 `AddProduct` 向商品列表添加新商品。
+- day8 新增 `DeleteProduct(List<Product>, int)`，通过商品编号查找并移除商品。
+- day8 由 `Program` 根据删除结果分别提示“商品删除成功”或“该商品不存在”。
